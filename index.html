@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SkillLink — Find help nearby, offer yours</title>
+<meta name="description" content="Browse local skills and services or post your own on SkillLink.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar container" aria-label="Primary">
+    <a class="brand" href="index.html">Skill<span>Link</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" id="navToggle">☰ Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" aria-current="page">Home</a></li>
+      <li><a href="search-results.html">Search</a></li>
+      <li><a href="login.html">Log in</a></li>
+      <li><a class="btn-post" href="register.html">Join free</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main">
+  <section class="hero container">
+    <h1>Find help nearby.<br>Offer yours.</h1>
+    <p class="lead">Tutoring, repairs, tech help, lessons — posted by people in your community, reviewed before they go live.</p>
+    <form class="search-bar" action="search-results.html" method="get" role="search">
+      <label for="q" class="visually-hidden">Search listings</label>
+      <input type="search" id="q" name="q" placeholder="Try &quot;guitar lessons&quot; or &quot;bike repair&quot;">
+      <label for="cat" class="visually-hidden">Category</label>
+      <select id="cat" name="category">
+        <option value="">All categories</option>
+        <option value="tutoring">Tutoring</option>
+        <option value="repairs">Repairs</option>
+        <option value="tech-help">Tech Help</option>
+        <option value="home-services">Home Services</option>
+        <option value="lessons">Lessons & Music</option>
+      </select>
+      <button class="btn btn-primary" type="submit">Search</button>
+    </form>
+  </section>
+
+  <section class="container" aria-labelledby="listings-heading">
+    <h2 id="listings-heading">Recently approved listings</h2>
+
+    <div class="listing-grid">
+      <article class="card">
+        <div class="thumb">
+          <img src="E:\Coding\skilllink\skilllink\assets\guitar.jpg" >
+        </div>
+        <div class="body">
+          <span class="badge">Lessons</span>
+          <h3><a href="listing-detail.html">Beginner guitar lessons</a></h3>
+          <p class="desc">Weekly 1-on-1 sessions, all ages, bring your own guitar or use mine.</p>
+          <p class="price">₹400 / hour</p>
+          <p class="meta">Posted by Ravi K. · 2 days ago</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">
+                    <img src="E:\Coding\skilllink\skilllink\assets\cycle.jpg" >
+
+        </div>
+        <div class="body">
+          <span class="badge">Repairs</span>
+          <h3><a href="listing-detail.html">Bicycle tune-ups & repair</a></h3>
+          <p class="desc">Flat tyres, brakes, gear adjustment. Same-day service most weekdays.</p>
+          <p class="price">₹250 / fixed</p>
+          <p class="meta">Posted by Meera S. · 5 days ago</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Photo of tech help listing</div>
+        <div class="body">
+          <span class="badge">Tech Help</span>
+          <h3><a href="listing-detail.html">Laptop setup & troubleshooting</a></h3>
+          <p class="desc">OS installs, virus cleanup, slow-laptop fixes. Patient with beginners.</p>
+          <p class="price">₹300 / hour</p>
+          <p class="meta">Posted by Aman T. · 1 week ago</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Photo of maths tutoring listing</div>
+        <div class="body">
+          <span class="badge">Tutoring</span>
+          <h3><a href="listing-detail.html">Class 10-12 Maths tutoring</a></h3>
+          <p class="desc">Board exam focused, doubt-clearing sessions, practice sheets included.</p>
+          <p class="price">₹500 / hour</p>
+          <p class="meta">Posted by Priya D. · 1 week ago</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Photo of home cleaning listing</div>
+        <div class="body">
+          <span class="badge">Home Services</span>
+          <h3><a href="listing-detail.html">Deep home cleaning</a></h3>
+          <p class="desc">2-person team, all supplies included, weekend slots available.</p>
+          <p class="price">₹1200 / fixed</p>
+          <p class="meta">Posted by Sunil V. · 2 weeks ago</p>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="thumb">Photo of cooking class listing</div>
+        <div class="body">
+          <span class="badge">Lessons</span>
+          <h3><a href="listing-detail.html">Home-style cooking classes</a></h3>
+          <p class="desc">Learn regional recipes in small groups of up to 4 people.</p>
+          <p class="price">₹350 / hour</p>
+          <p class="meta">Posted by Anjali R. · 3 weeks ago</p>
+        </div>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© 2026 SkillLink — a local skill exchange board.</p>
+    <nav aria-label="Footer">
+      <a href="index.html">About</a> · <a href="index.html">Contact</a> · <a href="login.html">Admin</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function () {
+    var links = document.getElementById('nav-links');
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    links.classList.toggle('open');
+  });
+</script>
+</body>
+</html>

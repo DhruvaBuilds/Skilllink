@@ -1,0 +1,353 @@
+/* ============================================================
+   SkillLink — design tokens
+   ============================================================ */
+:root {
+  --ink: #1F2B24;
+  --ink-soft: #4B5A50;
+  --paper: #F6F3EC;
+  --card: #FFFFFF;
+  --teal: #1F6F63;
+  --teal-dark: #164F46;
+  --ochre: #C68A2E;
+  --ochre-dark: #9C6C1F;
+  --line: #DAD4C4;
+  --danger: #B23A2F;
+  --success: #2F7A4D;
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "Public Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", "Courier New", monospace;
+
+  --radius: 10px;
+  --gap: 1.25rem;
+  --max-width: 1120px;
+}
+
+/* ============================================================
+   Reset & base
+   ============================================================ */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 1.55;
+}
+img { max-width: 100%; display: block; }
+h1, h2, h3 { font-family: var(--font-display); line-height: 1.15; margin: 0 0 .5em; }
+h1 { font-size: clamp(1.9rem, 3vw + 1rem, 2.75rem); }
+h2 { font-size: clamp(1.4rem, 2vw + 1rem, 2rem); }
+p { margin: 0 0 1em; color: var(--ink-soft); }
+a { color: var(--teal-dark); }
+:focus-visible { outline: 3px solid var(--ochre); outline-offset: 2px; }
+
+.container { max-width: var(--max-width); margin-inline: auto; padding-inline: 1.25rem; }
+
+/* ============================================================
+   Nav — Flexbox
+   ============================================================ */
+.site-header {
+  background: var(--ink);
+  color: var(--paper);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-block: .9rem;
+}
+.brand {
+  font-family: var(--font-display);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--paper);
+  text-decoration: none;
+  letter-spacing: .01em;
+}
+.brand span { color: var(--ochre); }
+.nav-toggle {
+  display: none;
+  background: none;
+  border: 1px solid var(--paper);
+  color: var(--paper);
+  border-radius: 6px;
+  padding: .4rem .6rem;
+  font-size: 1rem;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links a {
+  color: var(--paper);
+  text-decoration: none;
+  font-size: .95rem;
+}
+.nav-links a:hover { color: var(--ochre); }
+.btn-post {
+  background: var(--ochre);
+  color: var(--ink);
+  padding: .45rem 1rem;
+  border-radius: 999px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 720px) {
+  .nav-toggle { display: inline-flex; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    background: var(--ink);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.25rem 1.5rem;
+    gap: .9rem;
+  }
+  .nav-links.open { display: flex; }
+}
+
+/* ============================================================
+   Hero + search
+   ============================================================ */
+.hero {
+  padding-block: 3rem 2rem;
+  border-bottom: 1px dashed var(--line);
+}
+.hero p.lead { max-width: 46ch; }
+.search-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+.search-bar input[type="search"] {
+  flex: 1 1 260px;
+}
+.search-bar select { flex: 0 1 200px; }
+
+/* ============================================================
+   Forms
+   ============================================================ */
+label { display: block; font-weight: 600; margin-bottom: .3rem; font-size: .92rem; }
+input, select, textarea {
+  width: 100%;
+  padding: .65rem .8rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font: inherit;
+  background: var(--card);
+  color: var(--ink);
+}
+input:focus, select:focus, textarea:focus { border-color: var(--teal); }
+.field { margin-bottom: 1.1rem; }
+.field .hint { font-size: .82rem; color: var(--ink-soft); margin-top: .3rem; }
+.field .error {
+  font-size: .82rem;
+  color: var(--danger);
+  margin-top: .3rem;
+  display: none;
+}
+.field.invalid input,
+.field.invalid select,
+.field.invalid textarea { border-color: var(--danger); }
+.field.invalid .error { display: block; }
+
+.radio-row { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.radio-row label { display: flex; align-items: center; gap: .4rem; font-weight: 500; }
+.radio-row input { width: auto; }
+
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 999px;
+  padding: .7rem 1.6rem;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  text-align: center;
+}
+.btn-primary { background: var(--teal); color: #fff; }
+.btn-primary:hover { background: var(--teal-dark); }
+.btn-secondary { background: transparent; color: var(--ink); border: 1px solid var(--line); }
+.btn-danger { background: var(--danger); color: #fff; }
+.btn-sm { padding: .4rem 1rem; font-size: .85rem; }
+
+.auth-shell {
+  max-width: 400px;
+  margin: 3rem auto;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 2rem;
+}
+.auth-shell h1 { font-size: 1.6rem; }
+.auth-switch { text-align: center; margin-top: 1rem; font-size: .92rem; }
+
+/* ============================================================
+   Listing cards — CSS Grid, "tear-tab flyer" signature
+   ============================================================ */
+.listing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--gap);
+  padding-block: 2rem;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.card::before {
+  content: "";
+  display: block;
+  height: 6px;
+  background-image: repeating-linear-gradient(
+    to right, var(--ochre) 0 10px, transparent 10px 18px
+  );
+}
+.card .thumb {
+  aspect-ratio: 4 / 3;
+  background: var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink-soft);
+  font-size: .85rem;
+}
+.card .body { padding: 1rem 1.1rem 1.2rem; display: flex; flex-direction: column; gap: .5rem; flex: 1; }
+.badge {
+  align-self: flex-start;
+  font-family: var(--font-mono);
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .04em;
+  background: var(--teal);
+  color: #fff;
+  padding: .25rem .6rem;
+  border-radius: 4px;
+}
+.badge.pending { background: var(--ochre); color: var(--ink); }
+.badge.rejected { background: var(--danger); }
+.card h3 { font-size: 1.15rem; margin: 0; }
+.card .price { font-family: var(--font-mono); color: var(--teal-dark); font-weight: 700; }
+.card .desc { font-size: .9rem; flex: 1; }
+.card .meta { font-size: .8rem; color: var(--ink-soft); }
+
+/* ============================================================
+   Listing detail — two-column, Flexbox
+   ============================================================ */
+.detail-layout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding-block: 2rem;
+}
+.detail-layout .media { flex: 1 1 380px; }
+.detail-layout .info { flex: 1 1 320px; }
+.detail-layout .media .thumb { aspect-ratio: 4/3; border-radius: var(--radius); }
+
+/* ============================================================
+   Tables / dashboards
+   ============================================================ */
+.table-wrap { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--card); border-radius: var(--radius); overflow: hidden; }
+th, td { text-align: left; padding: .75rem 1rem; border-bottom: 1px solid var(--line); font-size: .92rem; }
+th { background: var(--ink); color: var(--paper); font-family: var(--font-display); font-weight: 600; }
+tr:last-child td { border-bottom: none; }
+.actions-cell { display: flex; gap: .5rem; }
+
+.dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 2rem;
+}
+
+@media (max-width: 640px) {
+  table, thead, tbody, th, td, tr { display: block; }
+  thead { display: none; }
+  tr { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); margin-bottom: .9rem; padding: .5rem .25rem; }
+  td { border: none; display: flex; justify-content: space-between; gap: 1rem; }
+  td::before { content: attr(data-label); font-weight: 600; color: var(--ink-soft); }
+}
+
+/* ============================================================
+   Empty / error states
+   ============================================================ */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  color: var(--ink-soft);
+}
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: .75rem;
+  padding: 2rem;
+}
+.error-page .code { font-family: var(--font-mono); font-size: 4rem; color: var(--ochre); }
+
+/* ============================================================
+   Footer
+   ============================================================ */
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 3rem;
+  padding-block: 1.5rem;
+}
+.footer-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: .85rem;
+  color: var(--ink-soft);
+}
+.footer-row a { color: var(--ink-soft); }
+
+/* ============================================================
+   Utility
+   ============================================================ */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--ochre);
+  color: var(--ink);
+  padding: .6rem 1rem;
+  z-index: 100;
+}
+.skip-link:focus { left: 1rem; top: 1rem; }

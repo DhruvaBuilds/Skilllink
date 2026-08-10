@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin — Categories — SkillLink</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Public+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="navbar container" aria-label="Primary">
+    <a class="brand" href="index.html">Skill<span>Link</span></a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" id="navToggle">☰ Menu</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="admin-dashboard.html">Moderation</a></li>
+      <li><a href="admin-categories.html" aria-current="page">Categories</a></li>
+      <li><a href="login.html">Log out</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main id="main" class="container">
+  <h1 style="margin-top:2rem;">Manage categories</h1>
+
+  <form class="field" style="max-width:420px; display:flex; gap:.6rem; align-items:flex-end;">
+    <div style="flex:1;">
+      <label for="newCat">New category name</label>
+      <input type="text" id="newCat" name="newCat" required>
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+  </form>
+
+  <div class="table-wrap" style="margin-top:1.5rem;">
+    <table>
+      <thead><tr><th>Category</th><th>Active listings</th><th>Actions</th></tr></thead>
+      <tbody>
+        <tr><td data-label="Category">Tutoring</td><td data-label="Active listings">14</td>
+          <td data-label="Actions" class="actions-cell"><button class="btn btn-secondary btn-sm" type="button">Rename</button><button class="btn btn-danger btn-sm" type="button">Delete</button></td></tr>
+        <tr><td data-label="Category">Repairs</td><td data-label="Active listings">9</td>
+          <td data-label="Actions" class="actions-cell"><button class="btn btn-secondary btn-sm" type="button">Rename</button><button class="btn btn-danger btn-sm" type="button">Delete</button></td></tr>
+        <tr><td data-label="Category">Tech Help</td><td data-label="Active listings">11</td>
+          <td data-label="Actions" class="actions-cell"><button class="btn btn-secondary btn-sm" type="button">Rename</button><button class="btn btn-danger btn-sm" type="button">Delete</button></td></tr>
+        <tr><td data-label="Category">Home Services</td><td data-label="Active listings">6</td>
+          <td data-label="Actions" class="actions-cell"><button class="btn btn-secondary btn-sm" type="button">Rename</button><button class="btn btn-danger btn-sm" type="button">Delete</button></td></tr>
+        <tr><td data-label="Category">Lessons & Music</td><td data-label="Active listings">8</td>
+          <td data-label="Actions" class="actions-cell"><button class="btn btn-secondary btn-sm" type="button">Rename</button><button class="btn btn-danger btn-sm" type="button">Delete</button></td></tr>
+      </tbody>
+    </table>
+  </div>
+</main>
+
+<footer class="site-footer">
+  <div class="container footer-row">
+    <p>© 2026 SkillLink — a local skill exchange board.</p>
+    <nav aria-label="Footer"><a href="index.html">About</a> · <a href="index.html">Contact</a></nav>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('navToggle').addEventListener('click', function () {
+    var links = document.getElementById('nav-links');
+    var expanded = this.getAttribute('aria-expanded') === 'true';
+    this.setAttribute('aria-expanded', String(!expanded));
+    links.classList.toggle('open');
+  });
+</script>
+</body>
+</html>
